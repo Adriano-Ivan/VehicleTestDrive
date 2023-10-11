@@ -6,5 +6,6 @@ namespace ReservationsAPI.Interfaces
     {
         Task<List<Reservation>> GetReservations();
         Task UpdateMailStatus(int id);
+        Task InsertReservation(Reservation reservation);    
     }
 }

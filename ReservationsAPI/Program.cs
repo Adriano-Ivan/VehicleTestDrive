@@ -19,9 +19,6 @@ var serviceBusUsername = builder.Configuration.GetValue<string>("ServiceBus:User
 var serviceBusPassword = builder.Configuration.GetValue<string>("ServiceBus:Password");
 var serviceBusPort = builder.Configuration.GetValue<ushort>("ServiceBus:Port");
 
-var emailUsername = builder.Configuration.GetValue<string>("usernameEmailService");
-var emailPassword = builder.Configuration.GetValue<string>("passwordEmailService");
-var emailHost = builder.Configuration.GetValue<string>("emailHost");
 
 // Database
 builder.Services.AddDbContext<ApiDbContext>(options =>
@@ -49,6 +46,7 @@ builder.Services.AddMassTransit(busConfigurator =>
 });
 
 builder.Services.AddScoped<IReservation, ReservationService>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 

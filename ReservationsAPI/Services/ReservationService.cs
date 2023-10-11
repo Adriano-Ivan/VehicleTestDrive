@@ -28,7 +28,7 @@ namespace ReservationsAPI.Services
         public async Task<List<Reservation>> GetReservations()
         {
             
-            return await _dbContext.Reservations.ToListAsync();
+            return await _dbContext.Reservations.Include(e => e.Vehicle).ToListAsync();
         }
 
         public async Task UpdateMailStatus(int id)
@@ -36,21 +36,33 @@ namespace ReservationsAPI.Services
             var reservationResult = await _dbContext.Reservations.FindAsync(id);
             if(reservationResult != null && reservationResult.IsMailSent == false)
             {
-                var stmpClient = new SmtpClient(_emailHost)
+                try
                 {
-                    Port = 587,
-                    Credentials = new NetworkCredential(
-                        _emailServiceUsername, _emailServicePassword,
-                        _emailHost
-                    ),
-                    EnableSsl = false
-                };
+                    var stmpClient = new SmtpClient(_emailHost)
+                    {
+                        Port = 587,
+                        Credentials = new NetworkCredential(
+                            _emailServiceUsername, _emailServicePassword
+                        ),
+                        EnableSsl = false
+                    };
 
-                stmpClient.Send("adrianoemail@email.com",reservationResult.Email,"Vehicle Test Drive", 
-                    "Your test drive is reserved");
-                reservationResult.IsMailSent = true;
-                await _dbContext.SaveChangesAsync();
+                    stmpClient.Send("adrianoemail@email.com", reservationResult.Email, "Vehicle Test Drive",
+                        "Your test drive is reserved");
+                    reservationResult.IsMailSent = true;
+                    await _dbContext.SaveChangesAsync();
+                }
+                catch(Exception e) {
+                
+                }
+
             }
+        }
+
+        public async Task InsertReservation(Reservation reservation)
+        {
+            await _dbContext.Reservations.AddAsync(reservation);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
