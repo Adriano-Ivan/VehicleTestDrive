@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehiclesAPI", "VehiclesAPI\VehiclesAPI.csproj", "{3DC893BA-2A78-4066-936B-5C1A713224D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiclesAPI", "VehiclesAPI\VehiclesAPI.csproj", "{3DC893BA-2A78-4066-936B-5C1A713224D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomersAPI", "CustomersAPI\CustomersAPI.csproj", "{5831A33E-6E41-4543-9F89-FF8E60288143}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomersAPI", "CustomersAPI\CustomersAPI.csproj", "{5831A33E-6E41-4543-9F89-FF8E60288143}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationsAPI", "ReservationsAPI\ReservationsAPI.csproj", "{764B1A2A-ACE3-43A1-B306-365B4B8E9ACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservationsAPI", "ReservationsAPI\ReservationsAPI.csproj", "{764B1A2A-ACE3-43A1-B306-365B4B8E9ACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{160D0A5F-77E9-4593-BA29-AE9A44E41927}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{764B1A2A-ACE3-43A1-B306-365B4B8E9ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{764B1A2A-ACE3-43A1-B306-365B4B8E9ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{764B1A2A-ACE3-43A1-B306-365B4B8E9ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{160D0A5F-77E9-4593-BA29-AE9A44E41927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160D0A5F-77E9-4593-BA29-AE9A44E41927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160D0A5F-77E9-4593-BA29-AE9A44E41927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160D0A5F-77E9-4593-BA29-AE9A44E41927}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
